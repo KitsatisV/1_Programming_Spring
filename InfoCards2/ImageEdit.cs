@@ -27,32 +27,6 @@ namespace Assignment
             set { _image = value; }
         }
 
-        //public string GetImageFilter()
-        //{
-        //    StringBuilder allImageExtensions = new StringBuilder();
-        //    string separator = "";
-        //    ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-        //    Dictionary<string, string> images = new Dictionary<string, string>();
-        //    foreach (ImageCodecInfo codec in codecs)
-        //    {
-        //        allImageExtensions.Append(separator);
-        //        allImageExtensions.Append(codec.FilenameExtension);
-        //        separator = ";";
-        //        images.Add(string.Format("{0} Files: ({1})", codec.FormatDescription, codec.FilenameExtension),
-        //                   codec.FilenameExtension);
-        //    }
-        //    StringBuilder sb = new StringBuilder();
-        //    if (allImageExtensions.Length > 0)
-        //    {
-        //        sb.AppendFormat("{0}|{1}", "All Images", allImageExtensions.ToString());
-        //    }
-        //    foreach (KeyValuePair<string, string> image in images)
-        //    {
-        //        sb.AppendFormat("|{0}|{1}", image.Key, image.Value);
-        //    }
-        //    return sb.ToString();
-        //}
-
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -77,6 +51,7 @@ namespace Assignment
                 {
                     txtImageFilePath.Text = openFileDialog1.FileName;
                     _temp64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog1.FileName));
+                    pcbPreview.Image = ImgPreview(_temp64);
                 }
                 else
                 {
@@ -139,7 +114,7 @@ namespace Assignment
 
         private void SaveDisabled()
         {
-            if (txtName.Text.Length != 0 && txtImageFilePath.Text.Length != 0)
+            if (txtName.Text.Length != 0 && ((pcbPreview.Image == null && txtImageFilePath.Text.Length != 0) || pcbPreview.Image != null))
             {
                 btnSave.Enabled = true;
             }
@@ -164,7 +139,21 @@ namespace Assignment
         private void ImageEdit_Load(object sender, EventArgs e)
         {
             txtName.Text = _image.Name;
-            //add preview and figure out how to edit -> (use _temp64 instead of txtFilePath)
+            _temp64 = _image.Base64string;
+            pcbPreview.Image = ImgPreview(_temp64);
+        }
+
+        private Image ImgPreview(string str64)
+        {
+            if (str64 != string.Empty)
+            {
+                byte[] bytes = Convert.FromBase64String(str64);
+                using (MemoryStream ms = new MemoryStream(bytes))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            return null;
         }
     }
 }

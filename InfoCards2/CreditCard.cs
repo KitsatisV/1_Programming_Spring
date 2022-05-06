@@ -84,8 +84,10 @@ namespace Assignment
         public void DisplayData(Panel displayPanel)
         {
             CloseDisplay();
-            _creditCardDisplayForm = new CreditCardDisplay();
-            _creditCardDisplayForm.CrCard = this;
+            _creditCardDisplayForm = new CreditCardDisplay
+            {
+                CrCard = this
+            };
             _creditCardDisplayForm = new CreditCardDisplay()
             {
                 Dock = DockStyle.Fill,
@@ -95,7 +97,8 @@ namespace Assignment
                 FormBorderStyle = FormBorderStyle.None,
                 Height = displayPanel.Height,
                 Width = displayPanel.Width,
-                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
+                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
+                AutoScroll = true
             };
             _creditCardDisplayForm.Show();
         }
@@ -105,7 +108,7 @@ namespace Assignment
             if (_creditCardDisplayForm != null)
             {
                 _creditCardDisplayForm.Close();
-                _creditCardDisplayForm = null;
+                _creditCardDisplayForm.Dispose();
             }
         }
 
@@ -122,9 +125,9 @@ namespace Assignment
                 _csc = creditCardEdit.CrCard._csc;
                 _expDate = creditCardEdit.CrCard._expDate;
                 _name = creditCardEdit.CrCard._name;
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

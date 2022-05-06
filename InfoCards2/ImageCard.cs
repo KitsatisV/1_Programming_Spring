@@ -39,7 +39,7 @@ namespace Assignment
             string[] imageInfo = txt.Split('|');
             if (imageInfo.Length != 2)
             {
-                throw new Exception("Invalid data for Airline Ticket InfoCard");
+                throw new Exception("Invalid data for Image InfoCard");
             }
             else
             {
@@ -56,15 +56,17 @@ namespace Assignment
             if (_imageDisplayForm != null)
             {
                 _imageDisplayForm.Close();
-                _imageDisplayForm = null;
+                _imageDisplayForm.Dispose();
             }
         }
 
         public void DisplayData(Panel displayPanel)
         {
             CloseDisplay();
-            _imageDisplayForm = new ImageDisplay();
-            _imageDisplayForm._Image = this;
+            _imageDisplayForm = new ImageDisplay
+            {
+                _Image = this
+            };
             _imageDisplayForm.Show();
         }
 
@@ -78,9 +80,9 @@ namespace Assignment
             {
                 _name = _imageEdit._Image._name;
                 _base64string = _imageEdit._Image._base64string;
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public string GetDataAsString()

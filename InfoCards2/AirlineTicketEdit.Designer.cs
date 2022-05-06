@@ -50,7 +50,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tltError = new System.Windows.Forms.ToolTip(this.components);
+            this.tltInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lblInfo = new System.Windows.Forms.Label();
             this.pnlDate = new System.Windows.Forms.Panel();
             this.pnlTime = new System.Windows.Forms.Panel();
             this.pnlDate.SuspendLayout();
@@ -279,9 +280,23 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // tltError
+            // tltInfo
             // 
-            this.tltError.IsBalloon = true;
+            this.tltInfo.IsBalloon = true;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblInfo.Location = new System.Drawing.Point(144, 189);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(10, 15);
+            this.lblInfo.TabIndex = 22;
+            this.lblInfo.Text = "i";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tltInfo.SetToolTip(this.lblInfo, "Examples: \"AB123\", \"AB12\", \"AB1\"");
             // 
             // pnlDate
             // 
@@ -303,6 +318,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 274);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.pnlDate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -326,7 +342,7 @@
             this.Controls.Add(this.pnlTime);
             this.Name = "AirlineTicketEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Airline Ticket Edit";
+            this.Text = "Airline Ticket";
             this.Load += new System.EventHandler(this.AirlineTicketEdit_Load);
             this.pnlDate.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -357,8 +373,9 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ToolTip tltError;
+        private System.Windows.Forms.ToolTip tltInfo;
         private System.Windows.Forms.Panel pnlDate;
         private System.Windows.Forms.Panel pnlTime;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

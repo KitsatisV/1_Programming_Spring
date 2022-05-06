@@ -110,15 +110,17 @@ namespace Assignment
             if (_airlineTicketDisplayForm != null)
             {
                 _airlineTicketDisplayForm.Close();
-                _airlineTicketDisplayForm = null;
+                _airlineTicketDisplayForm.Dispose();
             }
         }
 
         public void DisplayData(Panel displayPanel)
         {
             CloseDisplay();
-            _airlineTicketDisplayForm = new AirlineTicketDisplay();
-            _airlineTicketDisplayForm.AirTicket = this;
+            _airlineTicketDisplayForm = new AirlineTicketDisplay
+            {
+                AirTicket = this
+            };
             _airlineTicketDisplayForm.Show();
         }
 
@@ -138,9 +140,9 @@ namespace Assignment
                 _toAirport = airlineTicketEdit.AirTicket._toAirport;
                 _flightDatetime = airlineTicketEdit.AirTicket._flightDatetime;
                 _flightCode = airlineTicketEdit.AirTicket._flightCode;
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public string GetDataAsString()

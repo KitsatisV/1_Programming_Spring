@@ -221,7 +221,7 @@
             this.Controls.Add(this.txtPassengerName);
             this.Name = "AirlineTicketDisplay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AirlineTicketDisplay";
+            this.Text = "Airline Ticket";
             this.Load += new System.EventHandler(this.AirlineTicketDisplay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

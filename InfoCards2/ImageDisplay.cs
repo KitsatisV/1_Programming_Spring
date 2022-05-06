@@ -33,8 +33,8 @@ namespace Assignment
         private void ImageDisplay_Load(object sender, EventArgs e)
         {
             this.Text = _image.Name;
-            byte[] bytes = Convert.FromBase64String(_image.Base64string);
 
+            byte[] bytes = Convert.FromBase64String(_image.Base64string);
             using (MemoryStream ms = new MemoryStream(bytes))
             {
                 pcbImage.Image = Image.FromStream(ms);
