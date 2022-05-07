@@ -60,13 +60,13 @@
             // txtFlightCode
             // 
             this.txtFlightCode.Location = new System.Drawing.Point(160, 187);
-            this.txtFlightCode.MaxLength = 5;
+            this.txtFlightCode.MaxLength = 6;
             this.txtFlightCode.Name = "txtFlightCode";
             this.txtFlightCode.Size = new System.Drawing.Size(202, 20);
             this.txtFlightCode.TabIndex = 8;
             this.txtFlightCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtFlightCode, "The flight code consists of two parts. The two-letter airline code, followed by a" +
-        " 1 to 4 digits long number. Example: XX1234");
+        " 1 to 4 digits long number.");
             this.txtFlightCode.TextChanged += new System.EventHandler(this.txtFlightCode_TextChanged);
             this.txtFlightCode.Enter += new System.EventHandler(this.txtFlightCode_Enter);
             this.txtFlightCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFlightCode_KeyPress);
@@ -92,7 +92,7 @@
             this.txtInfoCardName.Size = new System.Drawing.Size(202, 20);
             this.txtInfoCardName.TabIndex = 0;
             this.txtInfoCardName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtInfoCardName, "A unique name to identify this Info Card.");
+            this.toolTip1.SetToolTip(this.txtInfoCardName, "A unique name to identify this Info Card.\r\n");
             this.txtInfoCardName.TextChanged += new System.EventHandler(this.txtInfoCardName_TextChanged);
             this.txtInfoCardName.Enter += new System.EventHandler(this.txtInfoCardName_Enter);
             // 
@@ -104,7 +104,7 @@
             this.txtTicketNumber.Size = new System.Drawing.Size(202, 20);
             this.txtTicketNumber.TabIndex = 1;
             this.txtTicketNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtTicketNumber, "The unique identification number of the ticket.\r\n1 to 20 digits long!");
+            this.toolTip1.SetToolTip(this.txtTicketNumber, "The unique identification number of the ticket.\r\n1-20 digits long.");
             this.txtTicketNumber.TextChanged += new System.EventHandler(this.txtTicketNumber_TextChanged);
             this.txtTicketNumber.Enter += new System.EventHandler(this.txtTicketNumber_Enter);
             this.txtTicketNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTicketNumber_KeyPress);
@@ -130,7 +130,7 @@
             this.txtAirportTo.Size = new System.Drawing.Size(54, 20);
             this.txtAirportTo.TabIndex = 3;
             this.txtAirportTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtAirportTo, "The 3-letter code of the airport of arrival!");
+            this.toolTip1.SetToolTip(this.txtAirportTo, "The 3-letter code of the airport of arrival.");
             this.txtAirportTo.TextChanged += new System.EventHandler(this.txtAirportTo_TextChanged);
             this.txtAirportTo.Enter += new System.EventHandler(this.txtAirportTo_Enter);
             this.txtAirportTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAirportTo_KeyPress);
@@ -143,7 +143,7 @@
             this.txtAirportFrom.Size = new System.Drawing.Size(54, 20);
             this.txtAirportFrom.TabIndex = 2;
             this.txtAirportFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtAirportFrom, "The 3-letter code of the airport of departure!");
+            this.toolTip1.SetToolTip(this.txtAirportFrom, "The 3-letter code of the airport of departure.");
             this.txtAirportFrom.TextChanged += new System.EventHandler(this.txtAirportFrom_TextChanged);
             this.txtAirportFrom.Enter += new System.EventHandler(this.txtAirportFrom_Enter);
             this.txtAirportFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAirportFrom_KeyPress);
@@ -296,7 +296,7 @@
             this.lblInfo.TabIndex = 22;
             this.lblInfo.Text = "i";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tltInfo.SetToolTip(this.lblInfo, "Examples: \"AB123\", \"AB12\", \"AB1\"");
+            this.tltInfo.SetToolTip(this.lblInfo, "Examples: \"AB1234\", \"AB123\", \"AB12\", \"AB1\".");
             // 
             // pnlDate
             // 

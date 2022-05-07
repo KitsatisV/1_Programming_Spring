@@ -15,9 +15,13 @@ namespace Assignment
     {
         private AirlineTicket airTicket = new AirlineTicket();
         private readonly Regex rx = new Regex("[A-Z]{2}[0-9]{1,3}");
+        private readonly Regex rx1 = new Regex("[A-Z]{1}");
+        private readonly Regex rx2 = new Regex("[A-Z]{2}");
         private readonly Regex rx3 = new Regex("[A-Z]{2}[0-9]{1}");
         private readonly Regex rx4 = new Regex("[A-Z]{2}[0-9]{2}");
         private readonly Regex rx5 = new Regex("[A-Z]{2}[0-9]{3}");
+        private readonly Regex rx6 = new Regex("[A-Z]{2}[0-9]{4}");
+
 
         public AirlineTicketEdit()
         {
@@ -323,131 +327,191 @@ namespace Assignment
 
         private void txtFlightCode_TextChanged(object sender, EventArgs e)
         {
-            if (txtFlightCode.Text.Length < 3)
+            switch (txtFlightCode.Text.Length)
             {
-                if(!rx.IsMatch(txtFlightCode.Text))
-                {
-                    txtFlightCode.BackColor = Color.MistyRose;
-                }
-            }
-            else if(txtFlightCode.Text.Length >= 3)
-            {
-                switch(txtFlightCode.Text.Length)
-                {
-                    case 3:
+                case 0:
+                    {
+                        txtFlightCode.BackColor = Color.MistyRose;
+                    }
+                    break;
+                case 1:
+                    {
+                        if (!rx1.IsMatch(txtFlightCode.Text))
                         {
-                            if(!rx3.IsMatch(txtFlightCode.Text))
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
                             {
-                                if (!char.IsLetter(txtFlightCode.Text[0]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsLetter(txtFlightCode.Text[1]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[2]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                            }
-                            else
-                            {
-                                txtFlightCode.BackColor = Color.White;
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
                             }
                         }
-                            break;
-                    case 4:
+                        txtFlightCode.BackColor = Color.MistyRose;
+                    }
+                    break;
+                case 2:
+                    {
+                        if (!rx2.IsMatch(txtFlightCode.Text))
                         {
-                            if (!rx4.IsMatch(txtFlightCode.Text))
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
                             {
-                                if (!char.IsLetter(txtFlightCode.Text[0]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsLetter(txtFlightCode.Text[1]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[2]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[3]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(3, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
                             }
-                            else
+                            else if (!char.IsLetter(txtFlightCode.Text[1]))
                             {
-                                txtFlightCode.BackColor = Color.White;
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
                             }
                         }
-                        break;
-                    case 5:
+                        txtFlightCode.BackColor = Color.MistyRose;
+                    }
+                    break;
+                case 3:
+                    {
+                        if (!rx3.IsMatch(txtFlightCode.Text))
                         {
-                            if(!rx5.IsMatch(txtFlightCode.Text))
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
                             {
-                                if (!char.IsLetter(txtFlightCode.Text[0]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsLetter(txtFlightCode.Text[1]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[2]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[3]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(3, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
-                                else if (!char.IsDigit(txtFlightCode.Text[4]))
-                                {
-                                    txtFlightCode.Text = txtFlightCode.Text.Remove(4, 1);
-                                    txtFlightCode.Select(txtFlightCode.Text.Length, 0);
-                                }
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
                             }
-                            else
+                            else if (!char.IsLetter(txtFlightCode.Text[1]))
                             {
-                                txtFlightCode.BackColor = Color.White;
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[2]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
                             }
                         }
-                        break;
-                }
-            }
-            else
-            {
-                txtFlightCode.BackColor = Color.White;
+                        else
+                        {
+                            txtFlightCode.BackColor = Color.White;
+                        }
+                    }
+                    break;
+                case 4:
+                    {
+                        if (!rx4.IsMatch(txtFlightCode.Text))
+                        {
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsLetter(txtFlightCode.Text[1]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[2]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[3]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(3, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                        }
+                        else
+                        {
+                            txtFlightCode.BackColor = Color.White;
+                        }
+                    }
+                    break;
+                case 5:
+                    {
+                        if (!rx5.IsMatch(txtFlightCode.Text))
+                        {
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsLetter(txtFlightCode.Text[1]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[2]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[3]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(3, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[4]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(4, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                        }
+                        else
+                        {
+                            txtFlightCode.BackColor = Color.White;
+                        }
+                    }
+                    break;
+                case 6:
+                    {
+                        if (!rx6.IsMatch(txtFlightCode.Text))
+                        {
+                            if (!char.IsLetter(txtFlightCode.Text[0]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(0, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsLetter(txtFlightCode.Text[1]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(1, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[2]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(2, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[3]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(3, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[4]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(4, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                            else if (!char.IsDigit(txtFlightCode.Text[5]))
+                            {
+                                txtFlightCode.Text = txtFlightCode.Text.Remove(5, 1);
+                                txtFlightCode.Select(txtFlightCode.Text.Length, 0);
+                            }
+                        }
+                        else
+                        {
+                            txtFlightCode.BackColor = Color.White;
+                        }
+                    }
+                    break;
             }
             SaveDisabled();
         }
 
         private void txtFlightCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(txtFlightCode.Text.Length < 2)
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b')
             {
-                if(!char.IsLetter(e.KeyChar) && e.KeyChar != '\b')
-                {
-                    e.Handled = true;
-                }
-                else if(char.IsLetter(e.KeyChar) && !char.IsUpper(e.KeyChar))
-                {
-                    e.KeyChar = char.ToUpper(e.KeyChar);
-                }
+                e.Handled = true;
+            }
+            else if (char.IsLetter(e.KeyChar) && !char.IsUpper(e.KeyChar))
+            {
+                e.KeyChar = char.ToUpper(e.KeyChar);
             }
         }
 

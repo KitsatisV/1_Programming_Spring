@@ -37,7 +37,7 @@ namespace Assignment
                 CheckFileExists = true,
                 CheckPathExists = true,
 
-                Filter = "All Images | *.BMP; *.RLE; *.JPG; *.JPEG; *.JPE; *.JFIF; *.GIF; *.TIF; *.TIFF; *.PNG",
+                Filter = "All Images (*.BMP, *.RLE, *.JPG, *.JPEG, *.JPE, *.JFIF, *.GIF, *.TIF, *.TIFF, *.PNG) | *.BMP; *.RLE; *.JPG; *.JPEG; *.JPE; *.JFIF; *.GIF; *.TIF; *.TIFF; *.PNG",
                 FilterIndex = 2,
                 RestoreDirectory = true,
 

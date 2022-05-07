@@ -43,7 +43,6 @@
             this.cmbExpMonth = new System.Windows.Forms.ComboBox();
             this.cmbExpYear = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pnlMonth = new System.Windows.Forms.Panel();
             this.pnlYear = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -56,8 +55,7 @@
             this.txtCardholderName.Size = new System.Drawing.Size(232, 20);
             this.txtCardholderName.TabIndex = 1;
             this.txtCardholderName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tooltip.SetToolTip(this.txtCardholderName, "The name of the person this credit card belongs to, as written on the credit card" +
-        ".\r\nThis field can contain alphabetic characters only!");
+            this.tooltip.SetToolTip(this.txtCardholderName, "The cardholder\'s name, as written on the credit card.");
             this.txtCardholderName.TextChanged += new System.EventHandler(this.txtCardholderName_TextChanged);
             this.txtCardholderName.Enter += new System.EventHandler(this.txtCardholderName_Enter);
             this.txtCardholderName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardholderName_KeyPress);
@@ -70,7 +68,7 @@
             this.txtPan.Size = new System.Drawing.Size(232, 20);
             this.txtPan.TabIndex = 2;
             this.txtPan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tooltip.SetToolTip(this.txtPan, "Numbers (0-9) only, 10 to 19 digits");
+            this.tooltip.SetToolTip(this.txtPan, "The number on the card, 10 -19 digits long.");
             this.txtPan.TextChanged += new System.EventHandler(this.txtPan_TextChanged);
             this.txtPan.Enter += new System.EventHandler(this.txtPan_Enter);
             this.txtPan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPan_KeyPress);
@@ -83,8 +81,8 @@
             this.txtCSC.Size = new System.Drawing.Size(116, 20);
             this.txtCSC.TabIndex = 5;
             this.txtCSC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tooltip.SetToolTip(this.txtCSC, "A 3-digit number, located on the back of your card.\r\nFor American Express cards, " +
-        "it is the 4-digit number on the front of your card.");
+            this.tooltip.SetToolTip(this.txtCSC, "A 3-digit number, located on the back of your card.\r\nSome credit cards might have" +
+        " a 4-digit number, on the front side.");
             this.txtCSC.TextChanged += new System.EventHandler(this.txtCSC_TextChanged);
             this.txtCSC.Enter += new System.EventHandler(this.txtCSC_Enter);
             this.txtCSC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCSC_KeyPress);
@@ -116,7 +114,7 @@
             this.label1.Location = new System.Drawing.Point(12, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Name (on the card):";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -126,7 +124,7 @@
             this.label2.Location = new System.Drawing.Point(12, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 8;
+            this.label2.TabIndex = 10;
             this.label2.Text = "Card number:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -136,7 +134,7 @@
             this.label3.Location = new System.Drawing.Point(12, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 11;
             this.label3.Text = "Expiration Date:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -146,7 +144,7 @@
             this.label4.Location = new System.Drawing.Point(12, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 12;
             this.label4.Text = "Card Security Code:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -159,7 +157,7 @@
             this.txtName.Size = new System.Drawing.Size(232, 20);
             this.txtName.TabIndex = 0;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tooltip.SetToolTip(this.txtName, "A unique name is required to identify this Info Card.");
+            this.tooltip.SetToolTip(this.txtName, "A unique name, to identify this Info Card.");
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             // 
@@ -285,7 +283,7 @@
             this.label9.Location = new System.Drawing.Point(12, 24);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 13);
-            this.label9.TabIndex = 25;
+            this.label9.TabIndex = 8;
             this.label9.Text = "Name (of the Info Card):";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -348,7 +346,6 @@
         private System.Windows.Forms.ToolTip tooltip;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtName;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox cmbExpMonth;
         private System.Windows.Forms.ComboBox cmbExpYear;
         private System.Windows.Forms.Panel pnlMonth;
