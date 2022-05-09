@@ -5,15 +5,16 @@ namespace Assignment
 {
     public class CreditCard : IInfoCard
     {
-        //fields    
+        #region fields
         private string _pan;
         private string _cardholderName;
         private string _csc;
         private DateTime _expDate;
         private string _name;
         private CreditCardDisplay _creditCardDisplayForm;
+        #endregion
 
-        //get-set
+        #region get-set
         public DateTime ExpDate
         {
             get { return _expDate; }
@@ -48,8 +49,9 @@ namespace Assignment
         {
             get { return "Credit Card"; }
         }
+        #endregion
 
-        //constructors
+        #region constructors
         public CreditCard()
         {
             this._pan = String.Empty;
@@ -74,8 +76,9 @@ namespace Assignment
                 _name = CreditCardInfo[0];
             }
         }
+        #endregion
 
-        //methods
+        #region methods
         public string GetDataAsString()
         {
             return string.Format("Credit Card|{0}|{1}|{2}|{3}|{4}", _name, _pan, _cardholderName, _csc, _expDate.ToString("M/yyyy"));
@@ -129,5 +132,6 @@ namespace Assignment
             }
             return false;
         }
+        #endregion
     }
 }

@@ -9,7 +9,7 @@ namespace Assignment
 {
     public class AirlineTicket : IInfoCard
     {
-        //fields
+        #region fields
         private string _name;
         private string _passengerName;
         private string _issuingAirline;
@@ -19,13 +19,15 @@ namespace Assignment
         private DateTime _flightDatetime;
         private string _flightCode;
         private AirlineTicketDisplay _airlineTicketDisplayForm;
-        
-        //get-set
+        #endregion
+
+        #region getsets
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
+
 
         public string PassengerName
         {
@@ -68,8 +70,9 @@ namespace Assignment
             get { return _flightCode; }
             set { _flightCode = value; }
         }
+        #endregion
 
-        //constructors
+        #region constructors
         public AirlineTicket()
         {
             _name = String.Empty;
@@ -101,8 +104,9 @@ namespace Assignment
                 _flightCode = airlineTicketInfo[7];
             }
         }
+        #endregion
 
-        //methods
+        #region methods
         public string Category => "Airline Ticket";
 
         public void CloseDisplay()
@@ -149,5 +153,6 @@ namespace Assignment
         {
             return string.Format("Airline Ticket|{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}", _name, _passengerName, _issuingAirline, _ticketNumber, _fromAirport, _toAirport, _flightDatetime.ToString("g"), _flightCode);
         }
+        #endregion
     }
 }

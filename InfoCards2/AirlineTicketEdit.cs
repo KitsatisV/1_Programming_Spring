@@ -13,6 +13,7 @@ namespace Assignment
 {
     public partial class AirlineTicketEdit : Form
     {
+        #region fields
         private AirlineTicket airTicket = new AirlineTicket();
         private readonly Regex rx = new Regex("[A-Z]{2}[0-9]{1,3}");
         private readonly Regex rx1 = new Regex("[A-Z]{1}");
@@ -21,7 +22,7 @@ namespace Assignment
         private readonly Regex rx4 = new Regex("[A-Z]{2}[0-9]{2}");
         private readonly Regex rx5 = new Regex("[A-Z]{2}[0-9]{3}");
         private readonly Regex rx6 = new Regex("[A-Z]{2}[0-9]{4}");
-
+        #endregion
 
         public AirlineTicketEdit()
         {
@@ -34,6 +35,7 @@ namespace Assignment
             set { airTicket = value; }
         }
 
+        #region CardNameChecks
         private void txtInfoCardName_Enter(object sender, EventArgs e)
         {
             if(txtInfoCardName.Text.Length == 0)
@@ -59,7 +61,9 @@ namespace Assignment
             }
             SaveDisabled();
         }
+        #endregion
 
+        #region TicketNumberChecks
         private void txtTicketNumber_Enter(object sender, EventArgs e)
         {
             if (txtTicketNumber.Text.Length == 0)
@@ -93,7 +97,9 @@ namespace Assignment
                 e.Handled = true;
             }
         }
+        #endregion
 
+        #region AirportFromChecks
         private void txtAirportFrom_Enter(object sender, EventArgs e)
         {
             if (txtAirportFrom.Text.Length < 3)
@@ -134,7 +140,9 @@ namespace Assignment
                 }
             }
         }
+        #endregion
 
+        #region AirportToChecks
         private void txtAirportTo_Enter(object sender, EventArgs e)
         {
             if (txtAirportTo.Text.Length < 3)
@@ -175,7 +183,9 @@ namespace Assignment
                 }
             }
         }
+        #endregion
 
+        #region PassengerNameChecks
         private void txtPassengerName_Enter(object sender, EventArgs e)
         {
             if (txtPassengerName.Text.Length == 0)
@@ -216,7 +226,9 @@ namespace Assignment
                 }
             }
         }
+        #endregion
 
+        #region IssuingAirlineChecks
         private void txtIssuingAirline_Enter(object sender, EventArgs e)
         {
             if (txtIssuingAirline.Text.Length == 0)
@@ -257,7 +269,9 @@ namespace Assignment
                 }
             }
         }
+        #endregion
 
+        #region DateTimeChecks
         private void dtpDate_Enter(object sender, EventArgs e)
         {
             pnlDate.BackColor = DateTime.Compare(dtpDate.Value.Date, DateTime.Now.Date) < 0 ? Color.Red : Color.White;
@@ -311,7 +325,9 @@ namespace Assignment
             }
             SaveDisabled();
         }
+        #endregion
 
+        #region FlightCodeChecks
         private void txtFlightCode_Enter(object sender, EventArgs e)
         {
             if(txtFlightCode.Text.Length < 3 || !rx.IsMatch(txtFlightCode.Text))
@@ -514,6 +530,7 @@ namespace Assignment
                 e.KeyChar = char.ToUpper(e.KeyChar);
             }
         }
+        #endregion
 
         private DateTime GetDateTime()
         {
