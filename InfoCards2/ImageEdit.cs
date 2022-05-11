@@ -116,10 +116,6 @@ namespace Assignment
         }
         #endregion
 
-        /// <summary>
-        /// This method is for checking whether the user should be able to save the InfoCard.
-        /// 
-        /// </summary>
         private void SaveDisabled()
         {
             if (txtName.Text.Length != 0 && ((pcbPreview.Image == null && txtImageFilePath.Text.Length != 0) || pcbPreview.Image != null))
