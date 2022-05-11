@@ -31,7 +31,7 @@ namespace Assignment
                         }
                     case "Image":
                         {
-                            return new ImageCard();
+                            return new Image();
                         }
                 }
             }
@@ -54,7 +54,7 @@ namespace Assignment
                         }
                     case "Image":
                         {
-                            return new ImageCard(initialDetails.Substring(6));
+                            return new Image(initialDetails.Substring(6));
                         }
                 }
             }

@@ -13,13 +13,13 @@ namespace Assignment
 {
     public partial class ImageDisplay : Form
     {
-        private ImageCard _image = new ImageCard();
+        private Image _image = new Image();
         public ImageDisplay()
         {
             InitializeComponent();
         }
 
-        public ImageCard _Image
+        public Image _Image
         {
             get { return _image; }
             set { _image = value; }
@@ -37,7 +37,7 @@ namespace Assignment
             byte[] bytes = Convert.FromBase64String(_image.Base64string);
             using (MemoryStream ms = new MemoryStream(bytes))
             {
-                pcbImage.Image = Image.FromStream(ms);
+                pcbImage.Image = System.Drawing.Image.FromStream(ms);
             }
         }
     }

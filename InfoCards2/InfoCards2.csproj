@@ -98,7 +98,7 @@
       <DependentUpon>CreditCardDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Factory.cs" />
-    <Compile Include="ImageCard.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="ImageDisplay.cs">
       <SubType>Form</SubType>
     </Compile>

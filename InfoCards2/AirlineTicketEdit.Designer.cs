@@ -271,6 +271,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(227, 228);
             this.btnSave.Name = "btnSave";

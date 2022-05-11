@@ -14,14 +14,14 @@ namespace Assignment
 {
     public partial class ImageEdit : Form
     {
-        private ImageCard _image = new ImageCard();
+        private Image _image = new Image();
         string _temp64;
         public ImageEdit()
         {
             InitializeComponent();
         }
 
-        public ImageCard _Image
+        public Image _Image
         {
             get { return _image; }
             set { _image = value; }
@@ -60,6 +60,7 @@ namespace Assignment
             }
         }
 
+        #region NameChecks
         private void txtName_Enter(object sender, EventArgs e)
         {
             SaveDisabled();
@@ -85,7 +86,9 @@ namespace Assignment
                 txtName.BackColor = Color.White;
             }
         }
+        #endregion
 
+        #region FilePathChecks
         private void txtImageFilePath_TextChanged(object sender, EventArgs e)
         {
             SaveDisabled();
@@ -111,7 +114,12 @@ namespace Assignment
                 txtImageFilePath.BackColor = Color.White;
             }
         }
+        #endregion
 
+        /// <summary>
+        /// This method is for checking whether the user should be able to save the InfoCard.
+        /// 
+        /// </summary>
         private void SaveDisabled()
         {
             if (txtName.Text.Length != 0 && ((pcbPreview.Image == null && txtImageFilePath.Text.Length != 0) || pcbPreview.Image != null))
@@ -141,16 +149,17 @@ namespace Assignment
             txtName.Text = _image.Name;
             _temp64 = _image.Base64string;
             pcbPreview.Image = ImgPreview(_temp64);
+            SaveDisabled();
         }
 
-        private Image ImgPreview(string str64)
+        private System.Drawing.Image ImgPreview(string str64)
         {
             if (str64 != string.Empty)
             {
                 byte[] bytes = Convert.FromBase64String(str64);
                 using (MemoryStream ms = new MemoryStream(bytes))
                 {
-                    return Image.FromStream(ms);
+                    return System.Drawing.Image.FromStream(ms);
                 }
             }
             return null;

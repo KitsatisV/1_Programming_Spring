@@ -7,14 +7,15 @@ using System.Windows.Forms;
 
 namespace Assignment
 {
-    public class ImageCard : IInfoCard
+    public class Image : IInfoCard
     {
-        //fields
+        #region fields
         private string _name;
         private string _base64string;
         private ImageDisplay _imageDisplayForm;
+        #endregion
 
-        //gets-sets
+        #region get-sets
         public string Name
         {
             get { return _name; }
@@ -26,15 +27,16 @@ namespace Assignment
             get { return _base64string; }
             set { _base64string = value; }
         }
+        #endregion
 
-        //constructors
-        public ImageCard()
+        #region constructors
+        public Image()
         {
             _name = String.Empty;
             _base64string = String.Empty;
         }
 
-        public ImageCard(string txt)
+        public Image(string txt)
         {
             string[] imageInfo = txt.Split('|');
             if (imageInfo.Length != 2)
@@ -47,8 +49,9 @@ namespace Assignment
                 _base64string = imageInfo[1];
             }
         }
+        #endregion
 
-        //methods
+        #region methods
         public string Category => "Image";
 
         public void CloseDisplay()
@@ -89,5 +92,6 @@ namespace Assignment
         {
             return string.Format("Image|{0}|{1}", _name, _base64string);
         }
+        #endregion
     }
 }
